@@ -3,6 +3,7 @@ import math
 import random
 import requests
 import urllib.request
+import chardet
 
 from datetime import date, datetime
 from wechatpy import WeChatClient
