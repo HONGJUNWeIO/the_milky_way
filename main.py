@@ -76,7 +76,8 @@ def get_weather():
     key="a0f4663f68a64fcfb9dd7fd06a13d058"
     loca="jieyang"
     url="https://geoapi.qweather.com/v2/city/lookup?location="
-    post=url+loca+"?key="+key
+    #https://geoapi.qweather.com/v2/city/lookup?location=jieyang&key=cc0fd8b9108546448761501a8351d8bf
+    post=url+loca+"&key="+key
     request=post
     re=requests.get(request)
     rep = re.json()
