@@ -73,6 +73,7 @@ def get_words():
    # return words.json()['data']['text']
 # https://geoapi.qweather.com/v2/city/lookup?location=beij&key=YOUR_KEY
 def get_weather():
+    test,
     key="a0f4663f68a64fcfb9dd7fd06a13d058"
     loca="puning"
     url="https://geoapi.qweather.com/v2/city/lookup?location="
@@ -89,10 +90,7 @@ def get_weather():
     posr=requests.get(pos)
     posrjs=posr.json()
     no=posrjs["now"]
-    test[0]=no["text"]
-    test[1]=no["temp"]
-    test[2]=no["feelsLike"]
-    return test
+    return no["text"],no["temp"],no["feelsLike"]
     
 
 # 字体随机颜色
@@ -105,13 +103,15 @@ wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
  #   wea, tem = get_weather(citys[i])
-    wea = get_weather()
+    status,temp,feellike= get_weather()
     cit, dat = get_city_date(citys[i])
     data = {
         #"date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
         "date": {"value": format(dat), "color": get_random_color()},
         "city": {"value": format(cit), "color": get_random_color()},
-        "weather": {"value": format(wea[0]), "color": get_random_color()},
+        "statu": {"value": format(status), "color": get_random_color()},
+        "tem": {"value": format(temp), "color": get_random_color()},
+        "feellik": {"value": format(feellike), "color": get_random_color()},
     #    "weather": {"value": "今日天气：{}".format(wea), "color": get_random_color()},
     #    "temperature": {"value": "当前温度：{}".format(tem), "color": get_random_color()},
     #    "love_days": {"value": "今天是你们在一起的第{}天".format(get_count(start_dates[i])), "color": get_random_color()},
