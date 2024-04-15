@@ -84,11 +84,12 @@ def get_weather():
     locations=rep["location"]
     id=locations[0]["id"]
     urlr="https://devapi.qweather.com/v7/weather/now?location="
+    #https://devapi.qweather.com/v7/weather/now?location=101010100&key=a0f4663f68a64fcfb9dd7fd06a13d058
     pos=urlr+id+"&key="+key
     posr=requests.get(pos)
     posrjs=posr.json()
     no=posrjs["now"]
-    return "温度:"+no[0]["temp"]+" 体感温度:"+no[0]["feelsLike"]+" 天气： "+no[0]["text"]
+    return "温度:"+no["temp"]+" 体感温度:"+no["feelsLike"]+" 天气： "+no["text"]
     
 
 # 字体随机颜色
