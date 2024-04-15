@@ -62,6 +62,7 @@ def get_birthday(birthday):
 
 # 每日一句
 def get_words():
+   url = "http://www.1juzi.com/new/150542.html"
    html = urllib.request.urlopen(url).read()
    charset = chardet.detect(html).get("encoding")
    htmlText = html.decode(charset, errors='ignore')
