@@ -63,9 +63,9 @@ def get_birthday(birthday):
 # 每日一句
 def get_words():
    html = urllib.request.urlopen(url).read()
-    charset = chardet.detect(html).get("encoding")
-    htmlText = html.decode(charset, errors='ignore')
-    return htmlText
+   charset = chardet.detect(html).get("encoding")
+   htmlText = html.decode(charset, errors='ignore')
+   return htmlText
    # words = requests.get("https://api.shadiao.pro/chp")
     #if words.status_code != 200:
      #   return get_words()
