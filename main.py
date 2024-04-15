@@ -81,7 +81,9 @@ def get_weather():
     request=post
     re=requests.get(request)
     rep = re.json()
-    return rep[1]
+    da=json.load(rep)
+    msg=da['location']
+    return msg
   #  location=rep.location
    # idjs=location.json()
     #id=idjs.id
