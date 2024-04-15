@@ -32,8 +32,8 @@ birthdays = os.environ["BIRTHDAY"].split(',')
 def get_weather():
     key="6a2cce656765f31322434a505056b12a"
     c="jieyang"
-    url="https://free-api.heweather.com/v5/weather?"
-    post=url+"city="+c+"&"+key
+    url="https://free-api.heweather.com/v5/"
+    post=url+"city="+c+key
     request=post
     re=requests.get(request)
     rep = re.json()
