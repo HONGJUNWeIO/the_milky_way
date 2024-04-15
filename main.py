@@ -2,8 +2,7 @@ import os
 import math
 import random
 import requests
-import urllib.request
-import chardet
+
 
 from datetime import date, datetime
 from wechatpy import WeChatClient
@@ -63,11 +62,10 @@ def get_birthday(birthday):
 
 # 每日一句
 def get_words():
-   url = "http://www.1juzi.com/new/150542.html"
-   html = urllib.request.urlopen(url).read()
-   charset = chardet.detect(html).get("encoding")
-   htmlText = html.decode(charset, errors='ignore')
-   return htmlText
+    ci = random.choice('abcdefghijkl')
+    url = "https://v1.hitokoto.cn/?c="+ ci +"&encode=text"
+    r = requests.post(url)
+    return r.text
    # words = requests.get("https://api.shadiao.pro/chp")
     #if words.status_code != 200:
      #   return get_words()
