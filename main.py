@@ -81,7 +81,9 @@ def get_weather():
     request=post
     re=requests.get(request)
     rep = re.json()
-    id=rep.location.id
+    location=rep.location
+    idjs=location.json()
+    id=idjs.id
     urlr="https://api.qweather.com/v7/weather/now?location="
     pos=urlr+id+"&key="+key
     posr=requests.get(pos)
