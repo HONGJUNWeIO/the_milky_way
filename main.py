@@ -82,15 +82,12 @@ def get_weather():
     re=requests.get(request)
     rep = re.json()
     locations=rep["location"]
-    return locations[0]["id"]
-  #  location=rep.location
-   # idjs=location.json()
-    #id=idjs.id
- #   urlr="https://api.qweather.com/v7/weather/now?location="
- #   pos=urlr+id+"&key="+key
- #   posr=requests.get(pos)
- #   posrjs=posr.json()
- #   return "温度:"+posrjs.now.temp+" 体感温度:"+posrjs.now.feelsLike+" 天气： "+posrjs.now.text
+    id=locations[0]["id"]
+    urlr="https://api.qweather.com/v7/weather/now?location="
+    pos=urlr+id+"&key="+key
+    posr=requests.get(pos)
+    posrjs=posr.json()
+    return "温度:"+posrjs.now.temp+" 体感温度:"+posrjs.now.feelsLike+" 天气： "+posrjs.now.text
     
 
 # 字体随机颜色
