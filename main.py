@@ -29,15 +29,7 @@ birthdays = os.environ["BIRTHDAY"].split(',')
   #  res = requests.get(url).json()
    # weather = res['data']['list'][0]
    # return weather['weather'], math.floor(weather['temp'])
-def get_weather():
-    key="6a2cce656765f31322434a505056b12a"
-    c="jieyang"
-    url="https://free-api.heweather.com/v5/"
-    post=url+"city="+c+key
-    request=post
-    re=requests.get(request)
-    rep = re.json()
-    return rep.txt
+
 
 
 # 当前城市、日期
@@ -79,7 +71,22 @@ def get_words():
     #if words.status_code != 200:
      #   return get_words()
    # return words.json()['data']['text']
-
+# https://geoapi.qweather.com/v2/city/lookup?location=beij&key=YOUR_KEY
+def get_weather():
+    key="a0f4663f68a64fcfb9dd7fd06a13d058"
+    loca="jieyang"
+    url="https://geoapi.qweather.com/v2/city/lookup?location="
+    post=url+loca+"?key="+key
+    request=post
+    re=requests.get(request)
+    rep = re.json()
+    id=rep.location.id
+    urlr="https://api.qweather.com/v7/weather/now?location="
+    pos=urlr+id+"&key="+key
+    posr=requests.get(pos)
+    posrjs=posr.json()
+    return "温度:"+posrjs.now.temp+" 体感温度:"+posrjs.now.feelsLike+" 天气： "+posrjs.now.text
+    
 
 # 字体随机颜色
 def get_random_color():
