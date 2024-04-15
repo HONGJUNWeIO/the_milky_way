@@ -34,8 +34,8 @@ def get_weather(city):
     request=url
     re=requests.get(request)
     rep = re.json()
-    return city = rep.get('city')+" "+msg = rep.get('msg')+" "+rep.get('update_time')+" "+rep.get('wea')+" "+rep.get('tem')+" "+" "+rep.get('win')+" "+rep.get('win_speed')+" "+rep.get('win_meter')+" "+rep.get('air')+" "+rep.get('time')
-
+    return  rep.get('city')
+ #+" "+rep.get('msg')+" "+rep.get('update_time')+" "+rep.get('wea')+" "+rep.get('tem')+" "+" "+rep.get('win')+" "+rep.get('win_speed')+" "+rep.get('win_meter')+" "+rep.get('air')+" "+rep.get('time')
 
 # 当前城市、日期
 def get_city_date(city):
