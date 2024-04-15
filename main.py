@@ -34,7 +34,10 @@ def get_weather():
     c="jieyang"
     url="https://free-api.heweather.com/v5/weather?"
     post=url+"city="+c+"&"+key
-    return post
+    request=post
+    re=requests.get(request)
+    rep = re.json()
+    return rep.txt
 
 
 # 当前城市、日期
