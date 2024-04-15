@@ -29,6 +29,12 @@ birthdays = os.environ["BIRTHDAY"].split(',')
   #  res = requests.get(url).json()
    # weather = res['data']['list'][0]
    # return weather['weather'], math.floor(weather['temp'])
+def get_weather(city):
+    url="https://api.iyk0.com/tq/?city={}".format(city)
+    request=url
+    re=requests.get(request)
+    rep = re.json()
+    return city = rep.get('city')+" "+msg = rep.get('msg')+" "+rep.get('update_time')+" "+rep.get('wea')+" "+rep.get('tem')+" "+" "+rep.get('win')+" "+rep.get('win_speed')+" "+rep.get('win_meter')+" "+rep.get('air')+" "+rep.get('time')
 
 
 # 当前城市、日期
@@ -82,11 +88,13 @@ wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
  #   wea, tem = get_weather(citys[i])
+    wea = get_weather("揭阳市")
     cit, dat = get_city_date(citys[i])
     data = {
         #"date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
         "date": {"value": format(dat), "color": get_random_color()},
-        "city": {"value": "当前城市：{}".format(cit), "color": get_random_color()},
+        "city": {"value": format(cit), "color": get_random_color()},
+        "weather": {"value": format(wea), "color": get_random_color()},
     #    "weather": {"value": "今日天气：{}".format(wea), "color": get_random_color()},
     #    "temperature": {"value": "当前温度：{}".format(tem), "color": get_random_color()},
     #    "love_days": {"value": "今天是你们在一起的第{}天".format(get_count(start_dates[i])), "color": get_random_color()},
