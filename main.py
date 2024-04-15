@@ -73,7 +73,6 @@ def get_words():
    # return words.json()['data']['text']
 # https://geoapi.qweather.com/v2/city/lookup?location=beij&key=YOUR_KEY
 def get_weather():
-    test,
     key="a0f4663f68a64fcfb9dd7fd06a13d058"
     loca="puning"
     url="https://geoapi.qweather.com/v2/city/lookup?location="
