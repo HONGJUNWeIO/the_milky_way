@@ -83,7 +83,7 @@ def get_weather():
     rep = re.json()
     locations=rep["location"]
     id=locations[0]["id"]
-    urlr="https://api.qweather.com/v7/weather/now?location="
+    urlr="https://devapi.qweather.com/v7/weather/now?location="
     pos=urlr+id+"&key="+key
     posr=requests.get(pos)
     posrjs=posr.json()
