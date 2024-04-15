@@ -84,7 +84,8 @@ for i in range(len(user_ids)):
  #   wea, tem = get_weather(citys[i])
     cit, dat = get_city_date(citys[i])
     data = {
-        "date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
+        #"date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
+        "date": {"value": format(dat), "color": get_random_color()},
         "city": {"value": "当前城市：{}".format(cit), "color": get_random_color()},
     #    "weather": {"value": "今日天气：{}".format(wea), "color": get_random_color()},
     #    "temperature": {"value": "当前温度：{}".format(tem), "color": get_random_color()},
