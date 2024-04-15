@@ -87,7 +87,8 @@ def get_weather():
     pos=urlr+id+"&key="+key
     posr=requests.get(pos)
     posrjs=posr.json()
-    return "温度:"+posrjs.now.temp+" 体感温度:"+posrjs.now.feelsLike+" 天气： "+posrjs.now.text
+    no=posrjs["now"]
+    return "温度:"+no[0]["temp"]+" 体感温度:"+no[0]["feelsLike"]+" 天气： "+no[0]["text"]
     
 
 # 字体随机颜色
