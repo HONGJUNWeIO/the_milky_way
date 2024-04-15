@@ -29,13 +29,13 @@ birthdays = os.environ["BIRTHDAY"].split(',')
   #  res = requests.get(url).json()
    # weather = res['data']['list'][0]
    # return weather['weather'], math.floor(weather['temp'])
-def get_weather(city):
-    url="https://api.iyk0.com/tq/?city={}".format(city)
-    request=url
-    re=requests.get(request)
-    rep = re.json()
-    return  rep.get('city')
- #+" "+rep.get('msg')+" "+rep.get('update_time')+" "+rep.get('wea')+" "+rep.get('tem')+" "+" "+rep.get('win')+" "+rep.get('win_speed')+" "+rep.get('win_meter')+" "+rep.get('air')+" "+rep.get('time')
+def get_weather():
+    key="6a2cce656765f31322434a505056b12a"
+    c="jieyang"
+    url="https://free-api.heweather.com/v5/weather?"
+    post=url+"city="+c+"&"+key
+    return post.text
+
 
 # 当前城市、日期
 def get_city_date(city):
