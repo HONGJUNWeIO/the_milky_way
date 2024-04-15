@@ -88,7 +88,7 @@ wm = WeChatMessage(client)
 
 for i in range(len(user_ids)):
  #   wea, tem = get_weather(citys[i])
-    wea = get_weather("揭阳市")
+    wea = get_weather()
     cit, dat = get_city_date(citys[i])
     data = {
         #"date": {"value": "今日日期：{}".format(dat), "color": get_random_color()},
