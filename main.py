@@ -61,10 +61,14 @@ def get_birthday(birthday):
 
 # 每日一句
 def get_words():
-    words = requests.get("https://api.shadiao.pro/chp")
-    if words.status_code != 200:
-        return get_words()
-    return words.json()['data']['text']
+   html = urllib.request.urlopen(url).read()
+    charset = chardet.detect(html).get("encoding")
+    htmlText = html.decode(charset, errors='ignore')
+    return htmlText
+   # words = requests.get("https://api.shadiao.pro/chp")
+    #if words.status_code != 200:
+     #   return get_words()
+   # return words.json()['data']['text']
 
 
 # 字体随机颜色
