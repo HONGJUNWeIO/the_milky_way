@@ -2,6 +2,7 @@ import os
 import math
 import random
 import requests
+import urllib.request
 
 from datetime import date, datetime
 from wechatpy import WeChatClient
